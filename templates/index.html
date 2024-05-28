@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Navbar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .main {
+            width: 100%;
+            height: 700px;
+            background-image: url("{{url_for('static', filename='blog.png')}}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="">
+        <div class="main">
+            <nav class="" style="background-color: rgba(255, 255, 255, 0);">
+                <div class="w-100 d-flex justify-content-between py-2" href="#" style="font-size: 18px;">
+                    <div style="font-size: 18px;">
+                        <span class="px-2" style="text-align:left"><strong>shahid!</strong></span>
+                    </div>
+                    <div style="font-size: 18px;font-weight: bold;">
+                        <span class="px-2" style="text-align:center;"><a style="text-decoration: none;color: black;"
+                                href="/">Home</a></span>
+                        <span class="px-2" style="text-align:center;"><a href="/about"
+                                style="text-decoration: none;color: black;">About</a></span>
+                        <span class="px-2" style="text-align:center;"><a href="/contact"
+                                style="text-decoration: none;color: black;">Contact Us</a></span>
+                        <span class="px-2" style="text-align:center;"><a href="/team"
+                                style="text-decoration: none;color: black;">Team</a></span>
+                        <span class="px-2" style="text-align:center;"><a href="/blog"
+                                style="text-decoration: none;color: black;">Blog</a></span>
+                        <span class="px-2" style="text-align:center;"><a href="/admin"
+                                    style="text-decoration: none;color: black;">Admin</a></span>
+                    </div>
+                    <div class="pt-1">
+                        <span class="px-2 " style="text-align:right;"><button
+                                style="border-radius: 7px; border: none; background-color: red;color: white;">
+                                <a href="/register"><strong>Register</strong></a>
+                            </button>
+                        </span>
+                        <span class="px-2 " style="text-align:right;"><button
+                                style="border-radius: 7px; border: none; background-color: red;color: white;">
+                                <a href="/login"><strong>Login</strong></a>
+                            </button>
+                        </span>
+                        <span class="px-2 " style="text-align:right;"><button
+                            style="border-radius: 7px; border: none; background-color: red;color: white;">
+                            <a href="/logout"><strong>Logout</strong></a>
+                        </button>
+                    </span>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+        <div class="mx-3 my-3">
+            <div class="container ">
+                <div class="row">
+                    {% for i in posts_data %}
+                    <div class="col my-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="static/{{i.file_path}}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{i.title}}</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Read</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <a class="btn btn-primary" href="{{prev}}">Previous</a>
+                <a class="btn btn-primary" href="{{next}}">Next</a>
+
+            </div>
+
+        </div>
+        <div class="P-3" style="background-color: rgb(248, 236, 236);height: 600px; width: 100%;">
+            <div class="">
+                <form action="" method="POST" style="padding-top: 100px;">
+                    <div class="">
+                        <center><strong style="font-size: 40px;">Let me know what's on your mind</strong></center>
+                    </div>
+                    <div class="row" style="margin-top: 80px;">
+                        <div class="col-4"></div>
+                        <div class="col">
+                            <div><label for="">First Name</label></div>
+                            <input type="text"
+                                style="border: none; border-bottom:1px solid black;background-color: transparent; outline: none;">
+                        </div>
+                        <div class="col ">
+                            <div class="ml-3" style="margin-left: 60px;">
+                                <div><label for="">Last Name</label></div>
+                                <input type="text"
+                                    style="border: none; border-bottom:1px solid black;background-color: transparent; outline: none;">
+                            </div>
+                        </div>
+                        <div class="col-4"></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-4"></div>
+                        <div class="col">
+                            <div><label for="">Email</label></div>
+                            <input type="text"
+                                style="border: none; border-bottom:1px solid black;background-color: transparent; outline: none;">
+                        </div>
+                        <div class="col">
+                            <div class="" style="margin-left: 60px;">
+                                <div><label for="">Leave us a message</label></div>
+                                <input type="text"
+                                    style="border: none; border-bottom:1px solid black;background-color: transparent; outline: none;">
+                            </div>
+                        </div>
+                        <div class="col-4"></div>
+                    </div>
+                    <div class="mt-5">
+                        <center>
+                            <button
+                                style="border: none;background-color:rgb(196, 83, 8); color: white;width: 150px;height: 40px;"><strong>Submit</strong></button>
+                        </center>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="" style="background-color: rgb(196, 83, 8);height: 60px; width: 100%;">
+            <div class="py-3 row">
+                <div class="col-2"></div>
+                <div class="col-8 text-center">© 2035 by Turning Heads. Powered and secured by Wix</div>
+                <div class="col-2 text-start ml-5"><a href="{{params['linked_in_link']}}" target="_blank"
+                        rel="noopener noreferrer"> <i class="fa-brands fa-facebook"></i></a></div>
+                </svg>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"
+            integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
